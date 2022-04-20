@@ -2,7 +2,7 @@ module.exports.config = {
     name: "chart",
     version: "1.0.0",
     hasPermssion: 2,
-    credits: "SenProject",
+    credits: "SenProject",//LAZIC
     description: "Sơ đồ",
     group: "Economy",
     usages: "",
