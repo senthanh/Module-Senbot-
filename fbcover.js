@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "fbcover", 
 	version: "1.0.0", 
 	hasPermssion: 0, 
-	credits: "DungUwU", 
+	credits: "SENPROJECT", //TDUNG
 	description: "blah blah blha", 
 	group: "image",
 	usages: "",
