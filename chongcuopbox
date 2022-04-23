@@ -1,0 +1,19 @@
+module.exports.config = {
+	name: "chongcuopbox",
+	version: "1.0.0",
+	hasPermssion: 2,
+	credits: "SENPROJECT",//convert Mirai
+	description: "CHỐNG CƯỚP BOX",
+	group: "SYSTEM"
+};
+module.exports.run = async({ api, event, Threads}) => {
+    const info = await api.getThreadInfo(event.threadID);
+    if (!info.adminIDs.some(item => item.id == api.getCurrentUserID())) 
+      return api.sendMessage('» Cần quyền quản trị viên nhóm, vui lòng thêm và thử lại!', event.threadID, event.messageID);
+    const data = (await Threads.getData(event.threadID)).data || {};
+    if (typeof data["guard"] == "guard" || data["guard"] == false) data["guard"] = true;
+    else data["guard"] = false;
+    await Threads.setData(event.threadID, { data });
+      global.data.threadData.set(parseInt(event.threadID), data);
+    return api.sendMessage(`» Đã ${(data["guard"] == true) ? "bật" : "tắt"} thành công guard!`, event.threadID, event.messageID);
+}
